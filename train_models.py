@@ -40,7 +40,7 @@ import glob
 import warnings
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 warnings.simplefilter('ignore', ConvergenceWarning)
-has_s3key=False
+
 
 # In[28]:
 
@@ -62,6 +62,10 @@ model_dir = '/content/Inflation_Forecast/model'
 output_dir = '/content/Inflation_Forecast/output'
 
 saved_path = s3_repo_path
+
+def has_s3key():
+    return False
+
 if not has_s3key():
     saved_path = set_local_path()
     #bidas_fs = s3fs.S3FileSystem(anon=True)
