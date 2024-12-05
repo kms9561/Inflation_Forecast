@@ -14,7 +14,7 @@
 # In[26]:
 
 
-from inflation import *
+
 
 
 # # Stage 2: Hyperparameter tuning
@@ -34,8 +34,9 @@ from inflation import *
 
 import time
 import sys
+sys.path.insert(0, '/content/Inflation_Forecast/')
 sys.setrecursionlimit(10**9)
-
+from inflation import *
 import glob
 import warnings
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
