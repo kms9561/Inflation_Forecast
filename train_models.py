@@ -40,7 +40,7 @@ import glob
 import warnings
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 warnings.simplefilter('ignore', ConvergenceWarning)
-has3key=False
+has_s3key=False
 
 # In[28]:
 
