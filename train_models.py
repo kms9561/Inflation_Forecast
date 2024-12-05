@@ -40,7 +40,7 @@ import glob
 import warnings
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 warnings.simplefilter('ignore', ConvergenceWarning)
-
+has3key=False
 
 # In[28]:
 
@@ -260,15 +260,10 @@ def train_arima():
         #fn = f'p12_r{rolling}_l{lag}_d{md}_dn{dn}_rl_test.pkl'  # 매월 모형추정
         fn = f'arima_p{p}_q{q}_r{r}.pkl'  # 매월 모형추정
 
-        if has_s3key():
-            #fp = os.path.join(output_s3_dir, fn)
-            #fp = './output_s3'
-            with open(fp, 'wb') as f:
-                pickle.dump(p_results, f)
-        else:
-            fp = os.path.join(output_dir, fn)
-            with open(fp, 'wb') as f:
-                pickle.dump(p_results, f)
+
+        fp = os.path.join(output_dir, fn)
+        with open(fp, 'wb') as f:
+            pickle.dump(p_results, f)
 
 
 # ## RW
@@ -322,16 +317,13 @@ def train_rw():
     #fn = f'p12_r{rolling}_l{lag}_d{md}_dn{dn}_rl_test.pkl'  # 매월 모형추정
     fn = f'rw.pkl'  # 매월 모형추정
     
-    if has_s3key():
+
         #fp = os.path.join(output_s3_dir, fn)
-        fp = '/content/Inflation_Forecast/output_s3'
+    fp = '/content/Inflation_Forecast/output_s3'
         #with bidas_fs.open(fp, 'wb') as f:
-        with open(fp, 'wb') as f:
-            pickle.dump(p_results, f)
-    else:
-        fp = os.path.join(output_dir, fn)
-        with open(fp, 'wb') as f:
-            pickle.dump(p_results, f)
+    with open(fp, 'wb') as f:
+        pickle.dump(p_results, f)
+
 
 
 # ## Reg
