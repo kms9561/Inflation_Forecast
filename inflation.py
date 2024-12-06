@@ -13,13 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import ticker
 
-#한글폰트
-# 폰트 파일 경로
-font_path = '/content/Inflation_Forecast/Fonts/NanumGothicCoding.ttf'
-font_name = plt.matplotlib.font_manager.FontProperties(fname=font_path).get_name()
 
-plt.rcParams['font.family'] = font_name
-# rc('font', family=font_name)
 
 
 import requests
